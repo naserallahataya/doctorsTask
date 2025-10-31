@@ -1,0 +1,857 @@
+/*
+====================================
+  MEDICAL PORTAL - GLOBAL STYLES 
+====================================
+*/
+
+:root {
+  --primary-color: #007bff; /* Blue for key actions/branding */
+  --secondary-color: #28a745; /* Green for success/appointments */
+  --light-bg: #f8f9fa; /* Light mode background */
+  --light-text: #343a40; /* Light mode text */
+  --light-card-bg: #ffffff; /* Light mode card background */
+  --dark-bg: #1a1a2e; /* Dark mode deep space background */
+  --dark-text: #e9ecef; /* Dark mode light text */
+  --dark-card-bg: #22223b; /* Dark mode card background */
+  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --shadow-dark: 0 6px 20px rgba(0, 0, 0, 0.6);
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  min-height: 100vh;
+}
+
+/* --- Theme Context Application --- */
+.light {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* --- Language Context (RTL) Application --- */
+.ar {
+  direction: rtl;
+  text-align: right;
+}
+
+/* --- General Page/Container Styles --- */
+.page-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/*
+====================================
+  HEADER & NAVIGATION STYLES 
+====================================
+*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: var(--shadow-light);
+  background-color: var(--light-card-bg);
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.dark header {
+  background-color: var(--dark-card-bg);
+  box-shadow: var(--shadow-dark);
+}
+
+header h1 { 
+    margin: 0; 
+    font-size: 1.8em; 
+    color: var(--primary-color); 
+    letter-spacing: 0.5px;
+}
+
+header nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: var(--light-text);
+  font-weight: 600;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.dark header nav a {
+  color: var(--dark-text);
+}
+
+header nav a:hover {
+  color: var(--primary-color);
+}
+
+/* Underline hover effect */
+header nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+    left: 0; /* LTR starting point */
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+.header-controls button {
+  padding: 8px 15px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.2s ease, transform 0.1s;
+}
+
+.header-controls button:hover { 
+    background-color: #0056b3; 
+    transform: translateY(-1px);
+}
+
+/* RTL Adjustments for Header */
+.ar header { flex-direction: row-reverse; }
+.ar header nav a { margin: 0 0 0 15px; }
+.ar .header-controls button { margin-right: 10px; margin-left: 0; }
+.ar header nav a::after {
+    left: auto;
+    right: 0; /* RTL starting point */
+}
+
+/*
+====================================
+  HOME PAGE STYLES 
+====================================
+*/
+
+/* --- Hero Section --- */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 50px;
+  background-image: linear-gradient(135deg, var(--light-card-bg), var(--light-bg));
+  margin-bottom: 30px;
+  border-radius: 15px;
+  box-shadow: var(--shadow-light);
+  overflow: hidden;
+}
+
+.dark .hero-section {
+    background-image: linear-gradient(135deg, var(--dark-card-bg), var(--dark-bg));
+    box-shadow: var(--shadow-dark);
+}
+
+.hero-content {
+  max-width: 55%;
+  animation: fadeIn 1s ease-out;
+}
+
+.hero-content h1 {
+  font-size: 3.5em;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 15px 35px;
+  background-color: var(--secondary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-button:hover { 
+    background-color: #1e7e34; 
+    transform: translateY(-2px);
+}
+
+/* RTL Hero Adjustment */
+.ar .hero-section {
+    flex-direction: row-reverse;
+}
+
+
+/* --- Stats Section --- */
+.stats-section {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: var(--primary-color);
+  color: white;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+}
+
+.stats-section h3 {
+  margin-top: 0;
+  font-size: 1.8em;
+  margin-bottom: 30px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  margin: 10px 20px;
+  padding: 15px;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* RTL Adjustment for Stat border */
+.ar .stat-item {
+    border-left: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.stat-item:first-child { border-left: none; }
+.ar .stat-item:first-child { border-right: none; }
+
+.stat-number {
+  display: block;
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stat-label {
+  display: block;
+  font-size: 1em;
+  opacity: 0.8;
+}
+
+/* --- Search & Doctor List --- */
+.search-section {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.search-section h2 {
+    color: var(--primary-color);
+    font-size: 2em;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  box-sizing: border-box;
+  font-size: 1em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.dark input[type="text"] {
+  background-color: #38384f;
+  color: var(--dark-text);
+  border-color: #444;
+}
+
+.doctor-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+/*
+====================================
+  DOCTOR CARD STYLES 
+====================================
+*/
+.card {
+  background-color: var(--light-card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-light);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.dark .card {
+  background-color: var(--dark-card-bg);
+  box-shadow: var(--shadow-dark);
+}
+
+.card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); 
+}
+
+.card img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 4px solid var(--primary-color);
+}
+
+.card h3 {
+  color: var(--primary-color);
+  margin: 10px 0 5px 0;
+  font-size: 1.5em;
+}
+
+.card p {
+  margin: 5px 0;
+  font-size: 1em;
+  opacity: 0.85;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: var(--secondary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.card a:hover { 
+    background-color: #1e7e34; 
+}
+/*
+====================================
+  APPOINTMENT FORM STYLES (EDITED)
+====================================
+*/
+
+/* 1. Container Card Styling */
+.appointment-form-card {
+    border: 1px solid #ddd;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 10px;
+    background-color: var(--light-bg); /* Applies the light background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .appointment-form-card { 
+    background-color: #38384f;
+    border-color: #444;
+}
+
+/* 2. Styling for the "Book an Appointment" heading inside the card */
+.appointment-form-card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 25px; /* More space below the heading */
+    font-size: 1.6em;
+    border-bottom: 2px solid rgba(0, 123, 255, 0.2); /* Subtle underline */
+    padding-bottom: 10px;
+}
+
+.dark .appointment-form-card h3 {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* 3. Form Layout (for spacing the dropdowns) */
+.appointment-form-card form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; /* Provides clean vertical spacing between Date and Time selects */
+}
+
+/* 4. Labels within the appointment form */
+.appointment-form-card label {
+    font-weight: 600; /* Slightly bolder labels */
+    color: var(--light-text);
+    transition: color 0.3s ease;
+}
+
+.dark .appointment-form-card label {
+    color: var(--dark-text);
+}
+
+
+ .appointment-form-card select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color: var(--light-card-bg);  
+  color: var(--light-text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+  
+   font-family: inherit;
+  font-size: 1em;
+  line-height: 1.5; 
+  -webkit-appearance: none; 
+  -moz-appearance: none;     
+  appearance: none;          
+
+   background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%20197.3l-102.7-101.3c-4.7-4.7-12.2-4.7-16.9%200L5.4%20197.3c-4.7%204.7-4.7%2012.2%200%2016.9l8.6%208.7c4.7%204.7%2012.2%204.7%2016.9%200l77.7-77.8c4.7-4.7%2012.2-4.7%2016.9%200l77.7%2077.8c4.7%204.7%2012.2%204.7%2016.9%200l8.6-8.7c4.7-4.7%204.7-12.1%200-16.9z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 12px auto;
+  padding-right: 30px;  
+}
+
+.dark .appointment-form-card select {
+  background-color: #2a2a3e;
+  color: var(--dark-text);
+  border-color: #555;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23e9ecef%22%20d%3D%22M287%20197.3l-102.7-101.3c-4.7-4.7-12.2-4.7-16.9%200L5.4%20197.3c-4.7%204.7-4.7%2012.2%200%2016.9l8.6%208.7c4.7%204.7%2012.2%204.7%2016.9%200l77.7-77.8c4.7-4.7%2012.2-4.7%2016.9%200l77.7%2077.8c4.7%204.7%2012.2%204.7%2016.9%200l8.6-8.7c4.7-4.7%204.7-12.1%200-16.9z%22%2F%3E%3C%2Fsvg%3E'); /* White arrow for dark mode */
+}
+
+.appointment-form-card select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+ .ar .appointment-form-card select {
+    background-position: left 10px top 50%;
+    padding-left: 30px;
+    padding-right: 12px;
+}
+
+
+/* 6. The Button Styling */
+.appointment-form-card button[type="submit"] {
+  padding: 14px 25px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.1s ease;
+}
+
+.appointment-form-card button[type="submit"]:hover:not(:disabled) {
+  background-color: #1e7e34;
+  transform: translateY(-1px);
+}
+
+.appointment-form-card button[type="submit"]:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+/*
+====================================
+  ABOUT US STYLES 
+====================================
+*/
+.about-us-page h2 { 
+    color: var(--primary-color); 
+    text-align: center; 
+    margin-bottom: 30px; 
+    font-size: 2.5em;
+}
+
+.mission-vision {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.mission-vision .section-card {
+    flex: 1;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: var(--light-card-bg);
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.dark .mission-vision .section-card {
+    background-color: var(--dark-card-bg);
+    box-shadow: var(--shadow-dark);
+}
+
+.mission-vision .section-card:hover {
+    transform: translateY(-5px);
+}
+
+.mission-vision h3 { 
+    color: var(--secondary-color); 
+    border-bottom: 2px solid rgba(40, 167, 69, 0.3); 
+    padding-bottom: 10px; 
+    margin-bottom: 20px;
+}
+
+
+/*
+====================================
+  GALLERY STYLES 
+====================================
+*/
+.gallery-page h2 { 
+    color: var(--primary-color); 
+    text-align: center; 
+    margin-bottom: 20px; 
+    font-size: 2.5em;
+}
+.gallery-page p { 
+    text-align: center; 
+    margin-bottom: 40px; 
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.gallery-item {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    background-color: var(--light-card-bg);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.dark .gallery-item {
+    background-color: var(--dark-card-bg);
+    box-shadow: var(--shadow-dark);
+}
+
+.gallery-item:hover {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item .caption {
+    padding: 15px 10px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/*CONTACT PAGE STYLES 
+
+*/
+.contact-page h2 { 
+    color: var(--primary-color); 
+    text-align: center; 
+    margin-bottom: 40px; 
+    font-size: 2.5em;
+}
+
+.contact-grid {
+    display: grid; 
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    background-color: var(--light-card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+}
+
+.dark .contact-grid {
+    background-color: var(--dark-card-bg);
+    box-shadow: var(--shadow-dark);
+}
+
+ .ar .contact-grid {
+    grid-template-columns: 1fr 2fr;  
+}
+
+ .contact-form {
+    display: flex; 
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.contact-form label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    
+     padding: 10px;
+    margin-top: 5px; 
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+     font-family: inherit; 
+    font-size: 1em; 
+    line-height: 1.5;
+    transition: border-color 0.2s ease;
+    
+     -webkit-appearance: none;
+    appearance: none;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.dark .contact-form input, .dark .contact-form textarea {
+    background-color: #38384f;
+    color: var(--dark-text);
+    border-color: #444;
+}
+
+ .robot-check-label {
+    display: flex;
+    align-items: center;
+    font-weight: normal !important;
+    margin-top: 5px;
+}
+
+.robot-check-label input[type="checkbox"] {
+    width: 18px; 
+    height: 18px;
+    cursor: pointer;
+    margin-top: 0;
+    margin-right: 10px; 
+}
+
+ .ar .robot-check-label input[type="checkbox"] {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+/* Button */
+.contact-form button[type="submit"] {
+    padding: 14px 25px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease, opacity 0.2s;
+}
+
+.contact-form button[type="submit"]:not(:disabled):hover {
+    background-color: #0056b3;
+}
+
+.contact-form button[type="submit"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+ .contact-info {
+    padding: 25px;
+    border-radius: 10px;
+    background-color: var(--light-bg);
+    text-align: inherit;
+    border-left: 5px solid var(--secondary-color);  
+}
+
+.dark .contact-info {
+    background-color: var(--dark-bg);
+    border-color: var(--secondary-color);
+}
+
+.contact-info h3 { 
+    color: var(--secondary-color); 
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+
+/*
+====================================
+  DOCTOR PAGE STYLES (UPDATED)
+====================================
+*/
+
+.doctor-page-details {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: var(--light-card-bg);
+  border-radius: 15px;
+  box-shadow: var(--shadow-light);
+  line-height: 1.6;
+}
+
+.dark .doctor-page-details {
+  background-color: var(--dark-card-bg);
+  box-shadow: var(--shadow-dark);
+}
+
+.doctor-page-details h2 { 
+    color: var(--primary-color); 
+    border-bottom: 2px solid rgba(0, 123, 255, 0.3); 
+    padding-bottom: 15px; 
+    margin-bottom: 20px;
+}
+.dark .doctor-page-details h2 { border-color: #444; }
+
+.specialty-detail {
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* --- NEW STYLE: Doctor Stats Bar (Rating/Review Count) --- */
+.doctor-stats-bar {
+    display: flex;
+    gap: 40px;
+    padding: 15px 0;
+    margin-bottom: 30px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.dark .doctor-stats-bar {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.doctor-stats-bar p {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+/* --- NEW STYLE: General Section Heading and List --- */
+.doctor-section {
+    margin-bottom: 30px;
+    padding-top: 10px;
+}
+
+.doctor-section h3 {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed rgba(0, 123, 255, 0.2);
+}
+
+.dark .doctor-section h3 {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.doctor-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.doctor-section li {
+    background-color: var(--light-bg);
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.dark .doctor-section li {
+    background-color: #2a2a3e;
+    border-left-color: var(--secondary-color);
+}
+
+.ar .doctor-section li {
+    border-left: none;
+    border-right: 4px solid var(--secondary-color);
+}
+
+/* --- NEW STYLE: Reviews --- */
+.review-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: var(--light-bg);
+}
+
+.dark .review-item {
+    border-color: #444;
+    background-color: #2a2a3e;
+}
+
+.review-text {
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.review-meta {
+    font-size: 0.9em;
+    text-align: right;
+    opacity: 0.8;
+}
+
+.ar .review-meta {
+    text-align: left;
+}

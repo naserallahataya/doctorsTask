@@ -1,0 +1,260 @@
+ /* General Setup */
+:root {
+  --light-bg: #f4f4f9;
+  --light-text: #333;
+  --light-card-bg: #fff;
+  --light-link: #007bff;
+  --dark-bg: #1e1e2f;
+  --dark-text: #e0e0e0;
+  --dark-card-bg: #2a2a3e;
+  --dark-link: #6c8cdb;
+  --accent: #007bff;
+  --accent-hover: #0056b3;
+  --font-family: 'Arial', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Theme-specific styles */
+.light {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* --- Header Styles (Header.jsx) --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--light-card-bg); /* Use light card bg for contrast */
+  color: var(--light-text);
+  transition: background-color 0.3s;
+}
+
+.dark header {
+  background-color: var(--dark-card-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  color: var(--dark-text);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+header button {
+  padding: 8px 15px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--accent);
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+header button:hover {
+  background-color: var(--accent-hover);
+}
+
+/* --- Home Page & Search (Home.jsx) --- */
+.doctor-list-container {
+  padding: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 600px;
+  padding: 12px 15px;
+  margin: 20px auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+.dark input[type="text"] {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+  border-color: #444;
+}
+
+.doctor-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Doctor Card (DoctorCard.jsx) --- */
+.card {
+  background-color: var(--light-card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+}
+
+.dark .card {
+  background-color: var(--dark-card-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  color: var(--accent);
+  margin: 10px 0 5px 0;
+  font-size: 1.4em;
+}
+
+.card p {
+  margin: 5px 0;
+  font-size: 0.95em;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 15px;
+  background-color: var(--accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.card a:hover {
+  background-color: var(--accent-hover);
+}
+
+/* --- Doctor Page (DoctorPage.jsx) --- */
+.doctor-page-details {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: var(--light-card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark .doctor-page-details {
+  background-color: var(--dark-card-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.doctor-page-details h2 {
+  color: var(--accent);
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+.dark .doctor-page-details h2 {
+    border-color: #444;
+}
+
+.doctor-page-details p {
+    line-height: 1.6;
+}
+
+/* --- Appointment Form (AppointmentForm.jsx) --- */
+.appointment-form-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: inherit; /* Inherit from page */
+}
+
+.appointment-form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.appointment-form-card label {
+  display: block;
+  font-weight: bold;
+}
+
+.appointment-form-card select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+.dark .appointment-form-card select {
+  background-color: #38384f;
+  color: var(--dark-text);
+  border-color: #444;
+}
+
+.appointment-form-card button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #28a745; /* Green for confirm */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.appointment-form-card button[type="submit"]:hover:not(:disabled) {
+  background-color: #1e7e34;
+}
+
+.appointment-form-card button[type="submit"]:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Specific styling for Arabic (Right-to-Left) */
+.ar {
+  direction: rtl;
+  text-align: right;
+}
+
+.ar header {
+  /* Reverses the order of main elements in a flex container */
+  flex-direction: row-reverse;
+}
+
+.ar header button {
+  margin-right: 10px;
+  margin-left: 0;
+}
